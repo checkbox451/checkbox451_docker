@@ -1,0 +1,6 @@
+[submodule "checkbox451_bot"]
+	path = checkbox451_bot
+	url = git@github.com:checkbox451/checkbox451_bot.git
+[submodule "srso_signer"]
+	path = srso_signer
+	url = git@github.com:checkbox451/srso_signer.git
