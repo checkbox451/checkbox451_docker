@@ -1,0 +1,26 @@
+version: "2"
+services:
+  bot:
+    build:
+      context: ./checkbox451_bot
+      args:
+        TOKEN: $TELEGRAM_BOT_TOKEN
+        ADMIN: $TELEGRAM_BOT_ADMIN
+        LOGIN: $CHECKBOX_LOGIN
+        PASSWORD: $CHECKBOX_PASSWORD
+        LICENSE_KEY: $CHECKBOX_LICENSE
+        API_URL: $CHECKBOX_API_URL
+        PRINTER_CONFIG: $PRINTER_CONFIG
+        PRINT_WIDTH: $PRINT_WIDTH
+        PRINT_BOTTOM_MARGIN: $PRINT_BOTTOM_MARGIN
+        PRINT_LOGO_PATH: $PRINT_LOGO_PATH
+        PRINT_LOGO_IMPL: $PRINT_LOGO_IMPL
+  srso_signer:
+    build:
+      context: ./srso_signer
+      args:
+        LOGIN: $CHECKBOX_LOGIN
+        API_URL: $CHECKBOX_API_URL
+        KEY: $CHECKBOX_KEY_PATH
+        PASSWORD: $CHECKBOX_KEY_PASS
+        ACSK: $CHECKBOX_KEY_ACSK
