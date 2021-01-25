@@ -1,5 +1,7 @@
 version: "2"
+
 services:
+
   bot:
     build:
       context: ./checkbox451_bot
@@ -15,6 +17,8 @@ services:
         PRINT_BOTTOM_MARGIN: $PRINT_BOTTOM_MARGIN
         PRINT_LOGO_PATH: $PRINT_LOGO_PATH
         PRINT_LOGO_IMPL: $PRINT_LOGO_IMPL
+    restart: unless-stopped
+
   srso_signer:
     build:
       context: ./srso_signer
@@ -24,3 +28,4 @@ services:
         KEY: $CHECKBOX_KEY_PATH
         PASSWORD: $CHECKBOX_KEY_PASS
         ACSK: $CHECKBOX_KEY_ACSK
+    restart: unless-stopped
