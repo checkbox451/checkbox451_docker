@@ -17,6 +17,9 @@ services:
         PRINT_BOTTOM_MARGIN: $PRINT_BOTTOM_MARGIN
         PRINT_LOGO_PATH: $PRINT_LOGO_PATH
         PRINT_LOGO_IMPL: $PRINT_LOGO_IMPL
+        DB_DIR: /db
+    volumes:
+      - db:/db
     restart: unless-stopped
 
   srso_signer:
@@ -29,3 +32,6 @@ services:
         PASSWORD: $CHECKBOX_KEY_PASS
         ACSK: $CHECKBOX_KEY_ACSK
     restart: unless-stopped
+
+volumes:
+  db:
