@@ -4,3 +4,4 @@
 [submodule "srso_signer"]
 	path = srso_signer
 	url = https://github.com/checkbox451/srso_signer.git
+	branch = master
