@@ -20,14 +20,11 @@ services:
         GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
         GOOGLE_SPREADSHEET_KEY: $GOOGLE_SPREADSHEET_KEY
         GOOGLE_WORKSHEET_TITLE: $GOOGLE_WORKSHEET_TITLE
+        SHIFT_CLOSE_TIME: $SHIFT_CLOSE_TIME
         DB_DIR: /db
     volumes:
       - db:/db
     restart: unless-stopped
-    labels:
-      ofelia.enabled: "true"
-      ofelia.job-exec.shift_close.schedule: "0 0 22 * * *"
-      ofelia.job-exec.shift_close.command: "python3 -m checkbox451_bot.shift_close"
 
   srso_signer:
     build:
@@ -39,17 +36,6 @@ services:
         PASSWORD: $CHECKBOX_KEY_PASS
         ACSK: $CHECKBOX_KEY_ACSK
     restart: unless-stopped
-
-  ofelia:
-    image: mcuadros/ofelia:latest
-    environment:
-      TZ: Europe/Kiev
-    depends_on:
-      - bot
-    command: daemon --docker
-    restart: unless-stopped
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
 
 volumes:
   db:
