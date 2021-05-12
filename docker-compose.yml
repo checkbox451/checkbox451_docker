@@ -30,6 +30,11 @@ services:
     volumes:
       - db:/db
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+          max-file: "5"
+          max-size: 10m
 
   srso_signer:
     build:
@@ -41,6 +46,11 @@ services:
         PASSWORD: $CHECKBOX_KEY_PASS
         ACSK: $CHECKBOX_KEY_ACSK
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+          max-file: "5"
+          max-size: 10m
 
 volumes:
   db:
